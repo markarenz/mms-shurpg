@@ -26,7 +26,7 @@ func _ready() -> void:
 	#limit_right = (map_rect.position.x + map_rect.size.x) * tile_size
 
 func setXOffset():
-	var nextOffset = 80 if targetFacing > 0 else -80
+	var nextOffset = 160 if targetFacing > 0 else -160
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_LINEAR)

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b2yqjud3mn2wd"]
+
+[ext_resource type="Texture2D" uid="uid://xo2bpfvfdehm" path="res://SCENES/OBJECTS/sprites_objects.png" id="1_6ukr0"]
+[ext_resource type="Script" uid="uid://cd242ydn82b43" path="res://SCENES/OBJECTS/asteroid_large.gd" id="1_m0e0f"]
+[ext_resource type="PackedScene" uid="uid://bbqhn8smlvrb" path="res://SCENES/PLAYER/hurt.tscn" id="3_m0e0f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvle0"]
+radius = 13.0
+
+[node name="AsteroidLarge" type="Node2D" unique_id=2103237482]
+script = ExtResource("1_m0e0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=707377583]
+texture = ExtResource("1_6ukr0")
+hframes = 4
+vframes = 4
+
+[node name="Hurt" parent="." unique_id=894472403 instance=ExtResource("3_m0e0f")]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hurt" index="0" unique_id=1720089072]
+shape = SubResource("CircleShape2D_yvle0")
+
+[connection signal="area_shape_entered" from="Hurt" to="." method="_on_hurt_area_shape_entered"]
+[connection signal="invincibility_ended" from="Hurt" to="." method="_on_hurt_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurt" to="." method="_on_hurt_invincibility_started"]
+[connection signal="timeout" from="Hurt/Timer" to="Hurt" method="_on_timer_timeout"]
+
+[editable path="Hurt"]
