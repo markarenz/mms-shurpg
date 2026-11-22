@@ -2,17 +2,15 @@
 class_name Enemy
 extends Node2D
 
+@export var damage: float = 1.0
 @export var speed: float = -100.0
 @export var rot_speed: float = 1
 @export var tilemap_main: TileMapLayer
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hurt: Area2D = $Hurt
 var splash_scene = preload("res://SCENES/FX/SPLASH/splash.tscn")
 var invincible: bool = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 func initialize() -> void:
 	if hurt:
@@ -24,19 +22,21 @@ func _physics_process(delta: float) -> void:
 	unload_if_outside_tilemap()
 
 func _on_hurt_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
-	var area_groups = area.get_groups()
-	if (area_groups.has("player_bullet")):
-		hit()
+	if not Globals.player_input_lock:
+		var area_groups = area.get_groups()
+		if (area_groups.has("player_bullet")):
+			hit(true)
 
 func _on_hurt_body_entered(_body: Node2D) -> void:
-	hit()
+	if not Globals.player_input_lock:
+		hit(false)
 
 func show_splash():
 	var splash = splash_scene.instantiate()
 	get_tree().current_scene.add_child(splash)
 	splash.global_transform = global_transform
 
-func hit():
+func hit(_spawn_children: bool) -> void:
 	pass
 
 func _on_hurt_invincibility_ended() -> void:
