@@ -7,10 +7,12 @@ extends CharacterBody2D
 @export var friction: float = 800.0
 @export var bullet_scene: PackedScene
 @export var facing: int = 1
+@export var is_hurt = false
 
 @onready var playerGroup: Node2D = $PlayerGroup
 @onready var engineSprite: AnimatedSprite2D = $PlayerGroup/EngineSprite
 @onready var muzzle: Marker2D = $PlayerGroup/Muzzle
+@onready var hurt: Area2D = $Hurt
 
 var move_direction: Vector2 = Vector2.ZERO
 var is_accelerating: bool = false
@@ -50,6 +52,13 @@ func fire_main():
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_transform = muzzle.global_transform
 
+func _on_player_hurt_area_entered(_area: Area2D) -> void:
+	hurt.start_invincibility(0.5)
 
-func _on_player_hurt_area_entered(area: Area2D) -> void:
-	print('OUCH')
+func _on_player_hurt_invincibility_ended() -> void:
+	modulate.a = 1.0
+	is_hurt = false
+
+func _on_player_hurt_invincibility_started() -> void:
+	modulate.a = 0.5
+	is_hurt = true

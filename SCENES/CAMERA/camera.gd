@@ -3,17 +3,12 @@ extends Camera2D
 @export var target: Node2D
 @export var tilemap: TileMapLayer
 @export var smooth_speed: float = 5.0
+@export var shake = Vector2.ZERO
+
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var targetFacing = 0
-
-func _physics_process(delta: float) -> void:
-	if (targetFacing != target.facing):
-		targetFacing = target.facing
-		setXOffset()
-	if target == null:
-		return
-	global_position = global_position.lerp(target.global_position, smooth_speed * delta)
-
+var is_shaking = false
 func _ready() -> void:
 	if tilemap == null:
 		return
@@ -25,10 +20,26 @@ func _ready() -> void:
 	#limit_left = map_rect.position.x * tile_size
 	#limit_right = (map_rect.position.x + map_rect.size.x) * tile_size
 
+func _physics_process(delta: float) -> void:
+	if  !is_shaking and target.is_hurt:
+		start_shake()
+	if (targetFacing != target.facing):
+		targetFacing = target.facing
+		setXOffset()
+	if target == null:
+		return
+	global_position = global_position.lerp(target.global_position + shake * 10, smooth_speed * delta)
+
 func setXOffset():
 	var nextOffset = 160 if targetFacing > 0 else -160
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(self, "offset:x", nextOffset, 1.0)
-	
+
+func start_shake():
+	is_shaking = true
+	anim_player.play('shake')
+
+func shake_anim_ended():
+	is_shaking = false

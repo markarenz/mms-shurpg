@@ -14,3 +14,4 @@ script = ExtResource("1_qjobe")
 shape = SubResource("RectangleShape2D_unroi")
 
 [node name="Timer" type="Timer" parent="." unique_id=1683074157]
+one_shot = true

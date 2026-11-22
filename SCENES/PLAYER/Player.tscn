@@ -7,9 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvle0"]
 size = Vector2(12, 3)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp7ms"]
-size = Vector2(12, 4)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp7ms"]
 atlas = ExtResource("2_b63ls")
 region = Rect2(0, 8, 8, 8)
@@ -44,8 +41,8 @@ collision_layer = 2
 collision_mask = 25
 script = ExtResource("1_jp7ms")
 
-[node name="PlayerHurt" parent="." unique_id=894472403 instance=ExtResource("2_clw41")]
-collision_layer = 0
+[node name="Hurt" parent="." unique_id=894472403 instance=ExtResource("2_clw41")]
+collision_layer = 2
 collision_mask = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=360700799]
@@ -53,9 +50,6 @@ collision_mask = 24
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=736044763]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yvle0")
-
-[node name="Hurt" type="CollisionShape2D" parent="." unique_id=148323146]
-shape = SubResource("RectangleShape2D_jp7ms")
 
 [node name="PlayerGroup" type="Node2D" parent="." unique_id=1311740345]
 
@@ -72,6 +66,9 @@ vframes = 16
 [node name="Muzzle" type="Marker2D" parent="PlayerGroup" unique_id=1167485939]
 position = Vector2(13, 0)
 
-[connection signal="area_entered" from="PlayerHurt" to="." method="_on_player_hurt_area_entered"]
+[connection signal="area_entered" from="Hurt" to="." method="_on_player_hurt_area_entered"]
+[connection signal="invincibility_ended" from="Hurt" to="." method="_on_player_hurt_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurt" to="." method="_on_player_hurt_invincibility_started"]
+[connection signal="timeout" from="Hurt/Timer" to="Hurt" method="_on_timer_timeout"]
 
-[editable path="PlayerHurt"]
+[editable path="Hurt"]

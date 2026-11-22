@@ -6,7 +6,6 @@ extends Node2D
 @export var rot_speed: float = 1
 @export var tilemap_main: TileMapLayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var timer: Timer = $Timer
 @onready var hurt: Area2D = $Hurt
 var splash_scene = preload("res://SCENES/FX/SPLASH/splash.tscn")
 var invincible: bool = false
@@ -16,17 +15,21 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func initialize() -> void:
-	hurt.start_invincibility(0.5)
+	if hurt:
+		hurt.start_invincibility(0.5)
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
 	sprite.rotation += rot_speed * delta
 	unload_if_outside_tilemap()
 
-func _on_hurt_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_hurt_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	var area_groups = area.get_groups()
 	if (area_groups.has("player_bullet")):
 		hit()
+
+func _on_hurt_body_entered(_body: Node2D) -> void:
+	hit()
 
 func show_splash():
 	var splash = splash_scene.instantiate()
