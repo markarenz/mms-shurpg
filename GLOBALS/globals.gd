@@ -12,23 +12,20 @@ func add_score(points: int) -> void:
 #--- HEALTH
 var max_health = 4.0
 var health = 4.0
-signal health_updated(new_health: float)
+signal player_health_updated(new_health: float)
 signal player_death()
 
 func init_player():
 	health = max_health
+	player_health_change(0)
 
-func player_health_change(value: int) -> void:
+func player_health_change(value: float) -> void:
 	if health > 0:
-		health += value
-		health_updated.emit(health)
-		print(health)
+		health = clamp(health + value, 0, max_health)
+		player_health_updated.emit(health)
 		if (health <= 0):
-			#get_tree().paused = true
 			player_input_lock = true
 			player_death.emit()
-			print('You are dead, brother.')	
-
 
 #class saved_game
 # score

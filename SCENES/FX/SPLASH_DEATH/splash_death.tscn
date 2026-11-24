@@ -32,28 +32,4 @@ color_initial_ramp = SubResource("Gradient_sxogr")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1512808774]
-emitting = false
-amount = 200
-lifetime = 2.0
-one_shot = true
-preprocess = 1.0
-explosiveness = 0.68
-randomness = 0.42
-lifetime_randomness = 0.4
-direction = Vector2(80, 80)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
-angular_velocity_min = 58.38
-angular_velocity_max = 298.38
-angle_max = 272.4
-scale_amount_min = 0.0
-scale_amount_max = 4.5
-color = Color(0.8685677, 0.25441733, 0.2134231, 1)
-color_initial_ramp = SubResource("Gradient_sxogr")
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-
 [connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

@@ -67,6 +67,7 @@ vframes = 16
 position = Vector2(13, 0)
 
 [connection signal="area_entered" from="Hurt" to="." method="_on_player_hurt_area_entered"]
+[connection signal="body_entered" from="Hurt" to="." method="_on_hurt_body_entered"]
 [connection signal="invincibility_ended" from="Hurt" to="." method="_on_player_hurt_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurt" to="." method="_on_player_hurt_invincibility_started"]
 [connection signal="timeout" from="Hurt/Timer" to="Hurt" method="_on_timer_timeout"]

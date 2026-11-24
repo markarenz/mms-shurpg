@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://thxlikfrayw0"]
+
+[ext_resource type="Script" uid="uid://pp1nmkwiu0jv" path="res://SCENES/UI/ui_health_sprite.gd" id="1_5ka7v"]
+[ext_resource type="Texture2D" uid="uid://bo1m41e5p3vfi" path="res://SCENES/UI/icons.png" id="1_8x851"]
+
+[node name="UiHealthSprite" type="Node2D" unique_id=447259356]
+script = ExtResource("1_5ka7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1207546308]
+texture = ExtResource("1_8x851")
+hframes = 8
+vframes = 16
+frame = 3

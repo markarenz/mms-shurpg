@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://chvxse40sjihm"]
+
+[ext_resource type="Script" uid="uid://ft7efd1xrtpo" path="res://SCENES/UI/ui_health.gd" id="1_2t2c7"]
+[ext_resource type="Texture2D" uid="uid://bo1m41e5p3vfi" path="res://SCENES/UI/icons.png" id="2_44wnf"]
+[ext_resource type="PackedScene" uid="uid://thxlikfrayw0" path="res://SCENES/UI/ui_health_sprite.tscn" id="3_kcje3"]
+
+[node name="UiHealth" type="Node2D" unique_id=438146623]
+script = ExtResource("1_2t2c7")
+
+[node name="HEART" type="Sprite2D" parent="." unique_id=1553031827]
+position = Vector2(8, 8)
+texture = ExtResource("2_44wnf")
+hframes = 8
+vframes = 8
+
+[node name="UiHealthSprite_0" parent="." unique_id=447259356 instance=ExtResource("3_kcje3")]
+position = Vector2(24, 8)
+
+[node name="UiHealthSprite_1" parent="." unique_id=661142154 instance=ExtResource("3_kcje3")]
+position = Vector2(40, 8)
+
+[node name="UiHealthSprite_2" parent="." unique_id=694441814 instance=ExtResource("3_kcje3")]
+position = Vector2(56, 8)
+
+[node name="UiHealthSprite_3" parent="." unique_id=792378621 instance=ExtResource("3_kcje3")]
+position = Vector2(72, 8)
+
+[node name="END_CAP" type="Sprite2D" parent="." unique_id=1524986773]
+position = Vector2(84, 8)
+texture = ExtResource("2_44wnf")
+hframes = 16
+vframes = 16
+frame = 8

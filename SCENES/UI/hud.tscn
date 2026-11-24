@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dugvpcrlhl134"]
+
+[ext_resource type="PackedScene" uid="uid://chvxse40sjihm" path="res://SCENES/UI/ui_health.tscn" id="1_04ikg"]
+
+[node name="HUD" type="CanvasLayer" unique_id=74590702]
+
+[node name="UiHealth" parent="." unique_id=438146623 instance=ExtResource("1_04ikg")]
+position = Vector2(5, 5)

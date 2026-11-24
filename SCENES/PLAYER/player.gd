@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 var splash_death_scene = preload("res://SCENES/FX/SPLASH_DEATH/splash_death.tscn")
+var splash_scene = preload("res://SCENES/FX/SPLASH/splash.tscn")
 
 @export_category("Stats")
 @export var max_speed: float = 200.0
@@ -20,6 +21,7 @@ var move_direction: Vector2 = Vector2.ZERO
 var is_accelerating: bool = false
 
 func _ready() -> void:
+	Globals.init_player()
 	Globals.player_death.connect(_on_player_death)
 
 
@@ -63,7 +65,17 @@ func _on_player_hurt_area_entered(area: Area2D) -> void:
 	if not Globals.player_input_lock:
 		var target = area.get_parent()
 		if "damage" in target:
-			Globals.player_health_change( -1 * target.damage)
+			Globals.player_health_change(-1 * target.damage)
+		hurt.start_invincibility(0.5)
+
+func _on_hurt_body_entered(body: Node2D) -> void:
+	if not Globals.player_input_lock:
+		var splash = splash_scene.instantiate()
+		get_tree().current_scene.add_child(splash)
+		splash.global_transform = global_transform
+		modulate.a = 0
+		const damage = 1
+		Globals.player_health_change(-1 * damage)
 		hurt.start_invincibility(0.5)
 
 func _on_player_hurt_invincibility_ended() -> void:
@@ -81,4 +93,3 @@ func _on_player_death():
 	get_tree().current_scene.add_child(splash)
 	splash.global_transform = global_transform
 	modulate.a = 0
-	#queue_free()

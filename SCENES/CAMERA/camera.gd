@@ -1,10 +1,11 @@
 extends Camera2D
 
-@export var target: Node2D
-@export var tilemap: TileMapLayer
 @export var smooth_speed: float = 5.0
 @export var shake = Vector2.ZERO
 
+
+@onready var tilemap: TileMapLayer = $"../Area/TileMapLayerMain"
+@onready var target: Node2D = $"../Player"
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var targetFacing = 0
