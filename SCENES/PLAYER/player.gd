@@ -29,6 +29,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	movement_loop(delta)
 
+func clear_movement() -> void:
+	move_direction = Vector2.ZERO
+	velocity = Vector2.ZERO
+
 func movement_loop(delta: float) -> void:
 	if not Globals.player_input_lock:
 		if (Input.is_action_just_pressed("fire_main")):

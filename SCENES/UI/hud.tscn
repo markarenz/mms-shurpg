@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://chvxse40sjihm" path="res://SCENES/UI/ui_health.tscn" id="1_04ikg"]
 [ext_resource type="PackedScene" uid="uid://dw1er3ialt8oa" path="res://SCENES/UI/pause.tscn" id="2_dys71"]
 [ext_resource type="PackedScene" uid="uid://cuokopo2dacxh" path="res://SCENES/UI/transition.tscn" id="3_rmnbr"]
+[ext_resource type="PackedScene" uid="uid://go6xaitohhdw" path="res://SCENES/UI/ui_xp.tscn" id="4_qw8cq"]
 
 [node name="HUD" type="CanvasLayer" unique_id=74590702]
 
@@ -14,3 +15,6 @@ process_mode = 3
 visible = false
 
 [node name="Transition" parent="." unique_id=1555234351 instance=ExtResource("3_rmnbr")]
+
+[node name="UiXp" parent="." unique_id=1136971161 instance=ExtResource("4_qw8cq")]
+position = Vector2(421, 0)

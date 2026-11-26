@@ -8,6 +8,7 @@ extends Camera2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var camera_lock = false
+var camera_snap_position = false
 
 var targetFacing = 0
 var is_shaking = false
@@ -23,17 +24,22 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if target and camera_lock == false:
-		if  !is_shaking and target.is_hurt:
+		if !is_shaking and target.is_hurt:
 			start_shake()
 		if (targetFacing != target.facing):
 			targetFacing = target.facing
 			setXOffset()
 		if target == null:
 			return
-		global_position = global_position.lerp(target.global_position + shake * 10, smooth_speed * delta)
+		if (camera_snap_position == true):
+			global_position = target.global_position
+			camera_snap_position = false
+		else:
+			global_position = global_position.lerp(target.global_position + shake * 10, smooth_speed * delta)
 
 func _on_camera_lock_changed() -> void:
 	camera_lock = Globals.camera_lock
+	camera_snap_position = true
 
 func setXOffset():
 	var nextOffset = 160 if targetFacing > 0 else -160

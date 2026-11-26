@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://dw1er3ialt8oa"]
 
 [ext_resource type="Script" uid="uid://coa023frgpebs" path="res://SCENES/UI/pause.gd" id="1_a8v3f"]
-[ext_resource type="FontFile" uid="uid://df1fmqm6y0uxs" path="res://FONTS/Handjet-VariableFont_ELGR,ELSH,wght.ttf" id="1_utibt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_elrae"]
-font = ExtResource("1_utibt")
-font_size = 25
+[ext_resource type="LabelSettings" uid="uid://b4brhc5jnbat1" path="res://pause_label.tres" id="2_a8v3f"]
 
 [node name="Pause" type="Node2D" unique_id=548299922]
 script = ExtResource("1_a8v3f")
@@ -19,6 +15,6 @@ color = Color(0.07, 0.07, 0.07, 0.6627451)
 offset_right = 426.0
 offset_bottom = 240.0
 text = "Pause."
-label_settings = SubResource("LabelSettings_elrae")
+label_settings = ExtResource("2_a8v3f")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://go6xaitohhdw"]
+
+[ext_resource type="Script" uid="uid://bxe2gr77ho5io" path="res://SCENES/UI/ui_xp.gd" id="1_l8y8n"]
+[ext_resource type="FontFile" uid="uid://df1fmqm6y0uxs" path="res://FONTS/Handjet-VariableFont_ELGR,ELSH,wght.ttf" id="2_xr582"]
+
+[sub_resource type="Theme" id="Theme_xr582"]
+default_font = ExtResource("2_xr582")
+
+[node name="UiXp" type="Node2D" unique_id=1136971161]
+script = ExtResource("1_l8y8n")
+
+[node name="Label" type="Label" parent="." unique_id=1456899942]
+offset_left = -122.0
+offset_bottom = 23.0
+theme = SubResource("Theme_xr582")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

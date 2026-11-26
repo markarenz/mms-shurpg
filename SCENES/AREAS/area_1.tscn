@@ -57,7 +57,7 @@ modulate = Color(1, 1, 1, 0.7176471)
 tile_set = SubResource("TileSet_dl6fq")
 
 [node name="AsteroidSpawner" parent="." unique_id=1586436907 instance=ExtResource("2_6y8hx")]
-position = Vector2(493, 216)
+position = Vector2(37, 109)
 
 [node name="PlayerStart" type="Marker2D" parent="." unique_id=50190153]
 position = Vector2(26, 104)

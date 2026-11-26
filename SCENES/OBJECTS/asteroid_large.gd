@@ -1,12 +1,14 @@
 extends Enemy
 
 const small_asteroid_scene: PackedScene = preload("res://SCENES/OBJECTS/asteroid_small.tscn")
+const xp_value = 5
 
 func _ready() -> void:
 	damage = 1.0
 
 func hit(spawn_children: bool) -> void:
 	show_splash()
+	Globals.add_xp(xp_value)
 	if spawn_children:
 		var num_to_spawn = randi_range(1, 2)
 		var y_gap = 0

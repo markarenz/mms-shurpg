@@ -13,7 +13,6 @@ func _ready() -> void:
 	load_area(Globals.player_area)
 
 func _on_area_changed() -> void:
-	# get_tree().paused = false
 	load_area(Globals.player_area)
 
 func load_area(area_id: String) -> void:
@@ -33,8 +32,6 @@ func load_area(area_id: String) -> void:
 		var player = get_node("Player")
 		if player_start_obj:
 			player.position = player_start_obj.position
-
-
 	var camera = camera_scene.instantiate()
 	add_child(camera)
 	camera.offset = Vector2(0, 0)

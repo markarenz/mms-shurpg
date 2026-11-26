@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://b4brhc5jnbat1"]
+
+[ext_resource type="FontFile" uid="uid://df1fmqm6y0uxs" path="res://FONTS/Handjet-VariableFont_ELGR,ELSH,wght.ttf" id="1_4mt2m"]
+
+[resource]
+font = ExtResource("1_4mt2m")
+font_size = 25
