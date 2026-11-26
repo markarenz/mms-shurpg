@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dvo2mou7rxxwg"]
+
+[ext_resource type="Script" uid="uid://cj8af28rxrpfu" path="res://SCENES/LANDING_PADS/transporter_chute.gd" id="1_564rg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvle0"]
+size = Vector2(16, 16)
+
+[node name="TransporterChute" type="Area2D" unique_id=233668134]
+process_mode = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_564rg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=7476397]
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+color = Color(0.3670531, 0.07566974, 0.11137054, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1480977526]
+shape = SubResource("RectangleShape2D_yvle0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1000634639]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,6 +21,7 @@ var move_direction: Vector2 = Vector2.ZERO
 var is_accelerating: bool = false
 
 func _ready() -> void:
+	z_index = 5
 	Globals.init_player()
 	Globals.player_death.connect(_on_player_death)
 
@@ -68,13 +69,13 @@ func _on_player_hurt_area_entered(area: Area2D) -> void:
 			Globals.player_health_change(-1 * target.damage)
 		hurt.start_invincibility(0.5)
 
-func _on_hurt_body_entered(body: Node2D) -> void:
+func _on_hurt_body_entered(_body: Node2D) -> void:
 	if not Globals.player_input_lock:
 		var splash = splash_scene.instantiate()
 		get_tree().current_scene.add_child(splash)
 		splash.global_transform = global_transform
 		modulate.a = 0
-		const damage = 1
+		const damage = 0.5
 		Globals.player_health_change(-1 * damage)
 		hurt.start_invincibility(0.5)
 

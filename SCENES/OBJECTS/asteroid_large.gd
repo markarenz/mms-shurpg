@@ -16,7 +16,7 @@ func hit(spawn_children: bool) -> void:
 			var small_asteroid = small_asteroid_scene.instantiate()
 			small_asteroid.speed = speed - randf_range(10.0, 50.0)
 			small_asteroid.rot_speed = rot_speed
-			get_tree().current_scene.add_child.call_deferred(small_asteroid)
+			get_parent().add_child.call_deferred(small_asteroid)
 			small_asteroid.global_transform = global_transform
 			small_asteroid.global_position.y += y_gap / 2 - (i % 2) * y_gap
 			small_asteroid.initialize()

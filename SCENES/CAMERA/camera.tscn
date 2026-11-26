@@ -53,6 +53,7 @@ _data = {
 }
 
 [node name="Camera2D" type="Camera2D" unique_id=263397557]
+process_mode = 3
 offset = Vector2(210, 120)
 script = ExtResource("1_mp5t2")
 

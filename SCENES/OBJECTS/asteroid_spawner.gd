@@ -26,7 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 			asteroid = asteroid_small_scene.instantiate()
 		else:
 			asteroid = asteroid_large_scene.instantiate()
-		get_tree().current_scene.add_child.call_deferred(asteroid)
+		get_parent().add_child.call_deferred(asteroid)
 		asteroid.tilemap_main = tilemap_main
 		asteroid.global_position = body.global_position
 		asteroid.global_position.x += randf_range(600.0, 800.0) * body.facing
