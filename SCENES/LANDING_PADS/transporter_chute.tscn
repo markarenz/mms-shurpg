@@ -496,7 +496,7 @@ libraries/ = SubResource("AnimationLibrary_0rijw")
 autoplay = &"init"
 
 [node name="Gradient" type="Sprite2D" parent="." unique_id=1575855211]
-z_index = 10
+z_index = 5
 position = Vector2(200, 0)
 texture = ExtResource("2_f135y")
 hframes = 4

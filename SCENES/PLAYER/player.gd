@@ -21,7 +21,7 @@ var move_direction: Vector2 = Vector2.ZERO
 var is_accelerating: bool = false
 
 func _ready() -> void:
-	z_index = 5
+	z_index = GameConstants.Z_INDEX.PLAYER
 	Globals.init_player()
 	Globals.player_death.connect(_on_player_death)
 
@@ -64,7 +64,7 @@ func fire_main():
 		return
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
-	bullet.z_index = 3
+	bullet.z_index = GameConstants.Z_INDEX.BULLET
 	bullet.global_transform = muzzle.global_transform
 
 func _on_player_hurt_area_entered(area: Area2D) -> void:

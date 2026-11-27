@@ -21,7 +21,7 @@ func load_area(area_id: String) -> void:
 		area_to_remove.queue_free()
 
 	var area := SCENES[area_id].instantiate()
-	area.z_index = 1
+	area.z_index = GameConstants.Z_INDEX.AREA
 	get_tree().current_scene.add_child(area)
 
 	var teleporter_chute_entry = area.get_node_or_null("TransporterChute_" + Globals.stats.player.area_last)
@@ -30,7 +30,7 @@ func load_area(area_id: String) -> void:
 	else:
 		var player_start_obj = area.get_node("PlayerStart")
 		var player = get_node("Player")
-		player.z_index = 2
+		player.z_index = GameConstants.Z_INDEX.PLAYER
 		if player_start_obj:
 			player.position = player_start_obj.position
 	var camera = camera_scene.instantiate()

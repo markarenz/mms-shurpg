@@ -9,6 +9,7 @@
 script = ExtResource("1_3ljsg")
 
 [node name="Player" parent="." unique_id=1117547497 instance=ExtResource("1_n2i1s")]
+z_index = 2
 position = Vector2(80, 120)
 max_speed = 250.0
 bullet_scene = ExtResource("4_qd1kl")
