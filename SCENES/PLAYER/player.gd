@@ -64,6 +64,7 @@ func fire_main():
 		return
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
+	bullet.z_index = 3
 	bullet.global_transform = muzzle.global_transform
 
 func _on_player_hurt_area_entered(area: Area2D) -> void:

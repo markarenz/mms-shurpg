@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dggvlwow517iu"
-path="res://.godot/imported/landing_pads.png-2352cc54ee3d4cc4862b4691dad3c6a4.ctex"
+uid="uid://dei1qt6q17okk"
+path="res://.godot/imported/landing_pads.png-f52aa0f07443a8f54a6de70500bc9aec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SCENES/UI/landing_pads.png"
-dest_files=["res://.godot/imported/landing_pads.png-2352cc54ee3d4cc4862b4691dad3c6a4.ctex"]
+source_file="res://SCENES/landing_pads.png"
+dest_files=["res://.godot/imported/landing_pads.png-f52aa0f07443a8f54a6de70500bc9aec.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Area2D
 
 @export var next_area_id = ''
 @onready var player = $"../../Player"
-#@onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer
 
 var disable_collision_check = false
 
@@ -11,6 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.clear_movement()
 		Globals.set_camera_lock(true)
 		get_tree().paused = true
+		animation_player.play("active")
 		var next_x = player.global_position.x + 426 * player.facing
 		var tween := create_tween()
 		tween.set_ease(Tween.EASE_IN)
@@ -45,3 +46,9 @@ func handle_player_area_entry_teleport() -> void:
 	#await tween.finished
 	#disable_collision_check = false
 	#get_tree().paused = false
+
+func _on_waker_body_entered(_body: Node2D) -> void:
+	animation_player.play('idle')
+
+func _on_waker_body_exited(_body: Node2D) -> void:
+	animation_player.play('init')

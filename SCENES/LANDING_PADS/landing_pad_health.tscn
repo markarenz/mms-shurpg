@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cigr8acvfbuoo"]
 
 [ext_resource type="Script" uid="uid://jvbjc384tiep" path="res://SCENES/LANDING_PADS/landing_pad_health.gd" id="1_qtx04"]
-[ext_resource type="Texture2D" uid="uid://dggvlwow517iu" path="res://SCENES/UI/landing_pads.png" id="2_uct22"]
+[ext_resource type="Texture2D" uid="uid://dggvlwow517iu" path="res://SCENES/LANDING_PADS/landing_pads.png" id="2_uct22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uct22"]
 size = Vector2(44, 15)

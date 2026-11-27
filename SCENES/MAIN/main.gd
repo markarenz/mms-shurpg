@@ -24,12 +24,13 @@ func load_area(area_id: String) -> void:
 	area.z_index = 1
 	get_tree().current_scene.add_child(area)
 
-	var teleporter_chute_entry = area.get_node("TransporterChute_" + Globals.player_area_last)
+	var teleporter_chute_entry = area.get_node_or_null("TransporterChute_" + Globals.player_area_last)
 	if (teleporter_chute_entry):
 		teleporter_chute_entry.handle_player_area_entry_teleport()
 	else:
 		var player_start_obj = area.get_node("PlayerStart")
 		var player = get_node("Player")
+		player.z_index = 2
 		if player_start_obj:
 			player.position = player_start_obj.position
 	var camera = camera_scene.instantiate()
