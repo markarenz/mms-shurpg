@@ -6,4 +6,4 @@ func _ready() -> void:
 	_on_xp_updated()
 
 func _on_xp_updated() -> void:
-	$Label.text = str(Globals.xp)
+	$Label.text = str(Globals.stats.player.xp)

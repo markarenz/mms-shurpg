@@ -10,10 +10,10 @@ var camera_scene = preload("res://SCENES/CAMERA/camera.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.area_changed.connect(_on_area_changed)
-	load_area(Globals.player_area)
+	load_area(Globals.stats.player.area)
 
 func _on_area_changed() -> void:
-	load_area(Globals.player_area)
+	load_area(Globals.stats.player.area)
 
 func load_area(area_id: String) -> void:
 	var existing_area_scenes = get_tree().get_nodes_in_group("area")
@@ -24,7 +24,7 @@ func load_area(area_id: String) -> void:
 	area.z_index = 1
 	get_tree().current_scene.add_child(area)
 
-	var teleporter_chute_entry = area.get_node_or_null("TransporterChute_" + Globals.player_area_last)
+	var teleporter_chute_entry = area.get_node_or_null("TransporterChute_" + Globals.stats.player.area_last)
 	if (teleporter_chute_entry):
 		teleporter_chute_entry.handle_player_area_entry_teleport()
 	else:

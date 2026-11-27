@@ -4,13 +4,13 @@ var health_sprite_scene = preload("res://SCENES/UI/ui_health_sprite.tscn")
 
 func _ready() -> void:
 	Globals.player_health_updated.connect(_on_player_health_updated)
-	handle_health_change(Globals.health)
+	handle_health_change(Globals.stats.player.health)
 
 func _on_player_health_updated(new_health: float) -> void:
 	handle_health_change(new_health)
 
 func handle_health_change(new_health: float):
-	var max_health = Globals.max_health
+	var max_health = Globals.stats.player.max_health
 	var num_health_sprites = ceil(max_health)
 
 	for i in range(num_health_sprites):
