@@ -33,32 +33,7 @@ tile_map_data = PackedByteArray("AAACAAQAAAAAAAEAAAABAAQAAAAAAAEAAAAAAAQAAAAAAAE
 tile_set = ExtResource("1_g2euh")
 
 [node name="AsteroidSpawner" parent="." unique_id=1586436907 instance=ExtResource("5_iodey")]
-position = Vector2(238, 129)
-
-[node name="AsteroidSpawner2" parent="." unique_id=1777866801 instance=ExtResource("5_iodey")]
-position = Vector2(456, 324)
-
-[node name="AsteroidSpawner3" parent="." unique_id=19177518 instance=ExtResource("5_iodey")]
-position = Vector2(565, 410)
-
-[node name="AsteroidSpawner4" parent="." unique_id=274805798 instance=ExtResource("5_iodey")]
-position = Vector2(887, 122)
-
-[node name="AsteroidSpawner5" parent="." unique_id=1187895102 instance=ExtResource("5_iodey")]
-position = Vector2(1322, 130)
-
-[node name="AsteroidSpawner6" parent="." unique_id=374649847 instance=ExtResource("5_iodey")]
-position = Vector2(2065, 129)
-
-[node name="AsteroidSpawner9" parent="." unique_id=1192482636 instance=ExtResource("5_iodey")]
-position = Vector2(3572, 116)
-
-[node name="AsteroidSpawner7" parent="." unique_id=2025163874 instance=ExtResource("5_iodey")]
-position = Vector2(3104, 132)
-
-[node name="AsteroidSpawner8" parent="." unique_id=2039267738 instance=ExtResource("5_iodey")]
-position = Vector2(2636, 121)
-max_spawn = 5
+position = Vector2(1079, 123)
 
 [node name="PlayerStart" type="Marker2D" parent="." unique_id=50190153]
 position = Vector2(100, 120)

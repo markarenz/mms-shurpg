@@ -499,15 +499,15 @@ autoplay = &"init"
 z_index = 5
 position = Vector2(200, 0)
 texture = ExtResource("2_f135y")
-hframes = 4
+hframes = 2
 vframes = 8
-frame = 2
+frame = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1816159541]
 z_index = 10
-offset_left = 216.0
+offset_left = 208.0
 offset_top = -8.0
-offset_right = 464.0
+offset_right = 471.0
 offset_bottom = 8.0
 color = Color(0.1, 0.1, 0.1, 1)
 
