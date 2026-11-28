@@ -1,3 +1,5 @@
+# asteroid_spawner.gd
+
 extends Area2D
 
 @export var min_spawn = 2

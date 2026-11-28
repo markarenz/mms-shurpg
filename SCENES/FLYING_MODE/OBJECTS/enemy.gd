@@ -1,4 +1,5 @@
-# asteroid.gd
+# enemy.gd (FLYING)
+
 class_name Enemy
 extends Node2D
 

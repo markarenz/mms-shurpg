@@ -1,4 +1,4 @@
-#hurt.gd
+# hurt.gd
 extends Area2D
 
 @onready var timer = $Timer

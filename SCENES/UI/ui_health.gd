@@ -1,3 +1,5 @@
+# ui_helth.gd
+
 extends Node2D
 
 var health_sprite_scene = preload("res://SCENES/UI/ui_health_sprite.tscn")

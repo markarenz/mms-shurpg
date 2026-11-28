@@ -1,3 +1,5 @@
+# pause.gd
+
 extends Node2D
 
 @export var is_paused = false

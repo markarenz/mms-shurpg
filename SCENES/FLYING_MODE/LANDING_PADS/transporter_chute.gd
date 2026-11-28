@@ -1,3 +1,5 @@
+# teleporter_chute.gd
+
 extends Area2D
 
 @export var next_area_id = ''

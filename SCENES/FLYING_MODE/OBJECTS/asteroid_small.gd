@@ -1,3 +1,4 @@
+# asteroid_small.gd
 extends Enemy
 
 const small_asteroid_scene: PackedScene = preload("res://SCENES/FLYING_MODE/OBJECTS/asteroid_small.tscn")

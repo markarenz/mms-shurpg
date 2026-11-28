@@ -1,3 +1,5 @@
+# splash_death.gd
+
 extends Node2D
 
 @onready var particles_1 = $CPUParticles2D

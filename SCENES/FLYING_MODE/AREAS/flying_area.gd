@@ -1,4 +1,5 @@
-# asteroid.gd
+# flying_area.gd
+
 class_name FlyingArea
 extends Node2D
 

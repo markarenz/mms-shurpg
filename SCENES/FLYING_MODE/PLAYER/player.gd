@@ -1,3 +1,5 @@
+# player.gd (FLYING)
+
 class_name Player
 extends CharacterBody2D
 

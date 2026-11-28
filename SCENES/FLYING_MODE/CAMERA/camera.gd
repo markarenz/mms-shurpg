@@ -1,3 +1,5 @@
+# camera.gd
+
 extends Camera2D
 
 @export var smooth_speed: float = 5.0

@@ -1,8 +1,11 @@
+# main.gd
+
 extends Node2D
 
 const SCENES: Dictionary[String, PackedScene] = {
 	"area_0": preload("res://SCENES/FLYING_MODE/AREAS/area_0.tscn"),
-	"area_1": preload("res://SCENES/FLYING_MODE/AREAS/area_1.tscn")
+	"area_1": preload("res://SCENES/FLYING_MODE/AREAS/area_1.tscn"),
+	"area_outpost_a": preload("res://SCENES/EVA_MODE/AREAS/area_outpost_a.tscn")
 }
 
 func _ready() -> void:

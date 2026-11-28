@@ -1,3 +1,5 @@
+# landing_pad_health.gd
+
 extends StaticBody2D
 
 var is_active = false
