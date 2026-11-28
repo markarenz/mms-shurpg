@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c6w2e2y2vosln"]
+
+[ext_resource type="Script" uid="uid://bqfgm72s22xi5" path="res://SCENES/FLYING_MODE/OBJECTS/asteroid_spawner.gd" id="1_qpid4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xntv"]
+size = Vector2(100, 180)
+
+[node name="AsteroidSpawner" type="Area2D" unique_id=1586436907]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qpid4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442604512]
+shape = SubResource("RectangleShape2D_8xntv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

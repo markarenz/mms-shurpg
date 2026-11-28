@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dnenryl0hi1ug"]
+
+[ext_resource type="Script" uid="uid://3ogoo3jupqxb" path="res://SCENES/FLYING_MODE/CAMERA/camera.gd" id="1_d5tf6"]
+
+[sub_resource type="Animation" id="Animation_ialhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:shake")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mp5t2"]
+resource_name = "shake"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shake_anim_ended"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:shake")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.13333334, 0.2, 0.3, 0.4, 0.53333336, 0.6666667, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 9), Vector2(0, -8), Vector2(0, 7), Vector2(0, -6), Vector2(0, 5), Vector2(0, -4), Vector2(0, 3), Vector2(0, -2), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ialhx"]
+_data = {
+&"RESET": SubResource("Animation_ialhx"),
+&"shake": SubResource("Animation_mp5t2")
+}
+
+[node name="Camera2D" type="Camera2D" unique_id=263397557]
+process_mode = 3
+offset = Vector2(210, 120)
+script = ExtResource("1_d5tf6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=866569746]
+libraries/ = SubResource("AnimationLibrary_ialhx")

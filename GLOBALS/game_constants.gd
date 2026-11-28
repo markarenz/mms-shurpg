@@ -1,4 +1,4 @@
-class_name GameConstants
+class_name GameUtils
 extends RefCounted
 
 const Z_INDEX = {
@@ -9,3 +9,6 @@ const Z_INDEX = {
 	"OVER_PLAYER": 5,
 	"ENEMIES": 10
 }
+
+static func is_player(body: Node2D) -> bool:
+	return body.get_groups().has("player")

@@ -1,13 +1,10 @@
 extends Node2D
 
 const SCENES: Dictionary[String, PackedScene] = {
-	"area_0": preload("res://SCENES/AREAS/area_0.tscn"),
-	"area_1": preload("res://SCENES/AREAS/area_1.tscn")
+	"area_0": preload("res://SCENES/FLYING_MODE/AREAS/area_0.tscn"),
+	"area_1": preload("res://SCENES/FLYING_MODE/AREAS/area_1.tscn")
 }
-var camera_scene = preload("res://SCENES/CAMERA/camera.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.area_changed.connect(_on_area_changed)
 	load_area(Globals.stats.player.area)
@@ -21,19 +18,5 @@ func load_area(area_id: String) -> void:
 		area_to_remove.queue_free()
 
 	var area := SCENES[area_id].instantiate()
-	area.z_index = GameConstants.Z_INDEX.AREA
+	area.z_index = GameUtils.Z_INDEX.AREA
 	get_tree().current_scene.add_child(area)
-
-	var teleporter_chute_entry = area.get_node_or_null("TransporterChute_" + Globals.stats.player.area_last)
-	if (teleporter_chute_entry):
-		teleporter_chute_entry.handle_player_area_entry_teleport()
-	else:
-		var player_start_obj = area.get_node("PlayerStart")
-		var player = get_node("Player")
-		player.z_index = GameConstants.Z_INDEX.PLAYER
-		if player_start_obj:
-			player.position = player_start_obj.position
-	var camera = camera_scene.instantiate()
-	add_child(camera)
-	camera.offset = Vector2(0, 0)
-	camera.position = Vector2(80, 120)

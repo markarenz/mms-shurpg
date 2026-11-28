@@ -1,17 +1,9 @@
 [gd_scene format=3 uid="uid://cykwgmv6sgfii"]
 
-[ext_resource type="Script" uid="uid://tpu86yrgfsu5" path="res://SCENES/MAIN/main.gd" id="1_3ljsg"]
-[ext_resource type="PackedScene" uid="uid://bfpuf1ee7bdxn" path="res://SCENES/PLAYER/Player.tscn" id="1_n2i1s"]
-[ext_resource type="PackedScene" uid="uid://cir2axlvkahcy" path="res://SCENES/BULLET/bullet.tscn" id="4_qd1kl"]
-[ext_resource type="PackedScene" uid="uid://dugvpcrlhl134" path="res://SCENES/UI/hud.tscn" id="5_202bt"]
+[ext_resource type="Script" uid="uid://tpu86yrgfsu5" path="res://SCENES/MAIN/main.gd" id="1_1xfn7"]
+[ext_resource type="PackedScene" uid="uid://dugvpcrlhl134" path="res://SCENES/UI/hud.tscn" id="2_rm3aj"]
 
 [node name="Main" type="Node2D" unique_id=958936536]
-script = ExtResource("1_3ljsg")
+script = ExtResource("1_1xfn7")
 
-[node name="Player" parent="." unique_id=1117547497 instance=ExtResource("1_n2i1s")]
-z_index = 2
-position = Vector2(80, 120)
-max_speed = 250.0
-bullet_scene = ExtResource("4_qd1kl")
-
-[node name="HUD" parent="." unique_id=74590702 instance=ExtResource("5_202bt")]
+[node name="HUD" parent="." unique_id=74590702 instance=ExtResource("2_rm3aj")]

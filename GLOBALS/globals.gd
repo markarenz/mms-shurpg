@@ -10,6 +10,7 @@ var stats = {
 		"health": 4,
 		"max_health": 4.0,
 		"xp": 0,
+		"facing": 1,
 		"area": 'area_0',
 		"area_last": '',
 		"flags": {},
